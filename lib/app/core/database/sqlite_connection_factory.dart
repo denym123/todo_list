@@ -1,6 +1,7 @@
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:synchronized/synchronized.dart';
+import 'package:todo_provider/app/core/database/sqlite_migration_factory.dart';
 
 class SqliteConnectionFactory {
   static const _version = 1;
@@ -34,17 +35,38 @@ class SqliteConnectionFactory {
     return _database!;
   }
 
-  void closeConnection(){
+  void closeConnection() {
     _database?.close();
     _database = null;
   }
 
-  Future<void> _onConfigure(Database db) async{
+  Future<void> _onConfigure(Database db) async {
     db.execute("PRAGMA foreign_keys = ON");
   }
-  Future<void> _onCreate(Database db, int version)async{}
-  Future<void> _onUpgrade(Database db, int oldVersion, int version)async{}
-  Future<void> _onDownGrade(Database db, int oldVersion, int version) async {
 
+  Future<void> _onCreate(Database db, int version) async {
+    final Batch batch = db.batch();
+
+    batch.commit();
+    final migrations =
+        await SqliteMigrationFactory().getCreateMigrations(version);
+
+    for (var migration in migrations) {
+      migration.create(batch);
+    }
   }
+
+  Future<void> _onUpgrade(Database db, int oldVersion, int version) async {
+    final Batch batch = db.batch();
+
+    batch.commit();
+    final migrations =
+    await SqliteMigrationFactory().getCreateMigrations(version);
+
+    for (var migration in migrations) {
+      migration.update(batch);
+    }
+  }
+
+  Future<void> _onDownGrade(Database db, int oldVersion, int version) async {}
 }
