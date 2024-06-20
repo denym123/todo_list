@@ -61,11 +61,3 @@ A estrutura do projeto está organizada da seguinte forma:
 ## Contribuições
 
 Contribuições são bem-vindas! Se você encontrou algum problema ou tem sugestões, sinta-se à vontade para abrir uma issue ou enviar um pull request.
-
-## Licença
-
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
----
-
-Este README fornece uma estrutura clara do projeto usando módulos para separar funcionalidades relacionadas, facilitando a compreensão e a manutenção do código. Adapte conforme necessário para refletir a estrutura específica e os detalhes do seu projeto.
