@@ -1,18 +1,71 @@
-git commit -m "first commit"
+# Aplicativo de Lista de Tarefas com SQLite e Provider no Flutter
 
-# todo_provider
+Este é um projeto de estudo de um aplicativo de lista de tarefas desenvolvido em Flutter, utilizando SQLite como banco de dados local e Provider para gerenciamento de estado.
 
-A new Flutter project.
+## Funcionalidades
 
-## Getting Started
+- Adicionar, editar e excluir tarefas.
+- Marcar tarefas como concluídas.
+- Persistência de dados usando SQLite.
+- Gerenciamento de estado utilizando Provider.
 
-This project is a starting point for a Flutter application.
+## Pré-requisitos
 
-A few resources to get you started if this is your first Flutter project:
+- Flutter SDK instalado. Para instruções de instalação, visite [flutter.dev](https://flutter.dev/docs/get-started/install).
+- Conhecimento básico de Flutter, SQLite e gerenciamento de estado com Provider.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Como Utilizar
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Para executar este projeto localmente, siga os passos abaixo:
+
+### Clonar o repositório
+
+```bash
+git clone https://github.com/seu-usuario/todo_list_flutter_sqlite_provider.git
+cd todo_list_flutter_sqlite_provider
+```
+
+### Instalar Dependências
+
+No diretório raiz do projeto, execute:
+
+```bash
+flutter pub get
+```
+
+### Executar o Aplicativo
+
+Para rodar o aplicativo em um emulador ou dispositivo conectado:
+
+```bash
+flutter run
+```
+
+## Estrutura do Projeto
+
+A estrutura do projeto está organizada da seguinte forma:
+
+- **`lib/`**: Contém todo o código-fonte do aplicativo.
+    - **`modules/`**: Módulos do aplicativo.
+        - **`task_list/`**: Módulo de lista de tarefas.
+            - **`data/`**: Classes de dados para gerenciamento das tarefas.
+            - **`presentation/`**: Telas e widgets da interface do usuário relacionados à lista de tarefas.
+            - **`task.dart`**: Modelo da tarefa.
+        - **`task_detail/`**: Módulo de detalhes da tarefa.
+            - **`data/`**: Classes de dados para detalhes da tarefa.
+            - **`presentation/`**: Telas e widgets da interface do usuário relacionados aos detalhes da tarefa.
+            - **`task_detail.dart`**: Tela de detalhes da tarefa.
+    - **`shared/`**: Componentes reutilizáveis compartilhados entre os módulos.
+    - **`main.dart`**: Ponto de entrada do aplicativo.
+
+## Contribuições
+
+Contribuições são bem-vindas! Se você encontrou algum problema ou tem sugestões, sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+Este README fornece uma estrutura clara do projeto usando módulos para separar funcionalidades relacionadas, facilitando a compreensão e a manutenção do código. Adapte conforme necessário para refletir a estrutura específica e os detalhes do seu projeto.
